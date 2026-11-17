@@ -14,7 +14,8 @@ ScoutBoard/
 ├── iniciar.py              ponto de entrada: atualiza os técnicos e sobe o site
 ├── app.py                  ponto de entrada WSGI e comandos `flask --app app.py ...`
 ├── config.py               caminhos compartilhados
-├── requirements.txt        dependências do site, do banco, da coleta e dos testes
+├── requirements.txt        dependências do site, da coleta e do processamento
+├── requirements-dev.txt    testes (pytest), além do requirements.txt
 ├── sb_web/                 aplicação Flask no padrão Application Factory (create_app)
 │   ├── rotas.py            páginas e API do site, escudos e fotos
 │   ├── painel.py           cálculos da tela (funções puras, sem Flask)
@@ -94,7 +95,7 @@ python iniciar.py
 
 O programa atualiza os **técnicos atuais** (Wikipédia pt, com o histórico do Wikidata) e sobe o
 site em [http://127.0.0.1:5000](https://www.google.com/search?q=http://127.0.0.1:5000). Se não houver internet, o site sobe com os dados que já estão em
-disco e avisa no terminal. Para subir sem atualizar nada: `python iniciar.py --sem-coleta`.
+disco e avisa no terminal. Sem essa opção, o site sobe sem atualizar nada (`python iniciar.py`).
 
 **O site sobe na hora e não coleta nada ao iniciar.** A atualização dos técnicos, que levava de 2 a
 3 minutos a cada início, agora só roda quando pedida: `python iniciar.py --atualizar-tecnicos`.
@@ -316,6 +317,7 @@ O que o site busca sozinho, quando uma página pede (texto em `dados/cache/`, fo
 ## Testes
 
 ```bash
+python -m pip install -r requirements-dev.txt
 python -m pytest
 
 ```
@@ -324,6 +326,6 @@ python -m pytest
 
 * **Técnico atual:** a Wikipédia tem prioridade sobre o Wikidata. Quando os dois divergem, a
 divergência fica em `dados/treinadores_status.json`, para conferência.
-* **Credenciais:** nenhum arquivo de credencial vai para o git (`.env`, `*.db` e as antigas
-credenciais do Google Drive estão no `.gitignore`). Se alguma já esteve num commit, revogue-a.
+* **Credenciais:** nenhum arquivo de credencial vai para o git (`.env` e `*.db` estão no `.gitignore`).
+O projeto não usa mais credenciais do Google Drive. Se alguma já esteve num commit, revogue-a.
 * **Minutos** são estimativas (intervalo entre o primeiro e o último evento do jogador).

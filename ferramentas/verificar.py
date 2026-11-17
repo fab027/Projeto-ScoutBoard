@@ -35,8 +35,8 @@ def checar_dependencias():
             faltando.append(modulo)
     if faltando:
         print("\nInstale as dependencias com:")
-        print("    python -m pip install -r requirements.txt")
-        print("(com o Python do venv: venv\\Scripts\\python.exe -m pip install -r requirements.txt)")
+        print("    python -m pip install -r requirements-dev.txt")
+        print("(com o Python do venv: venv\\Scripts\\python.exe -m pip install -r requirements-dev.txt)")
         return False
     return True
 

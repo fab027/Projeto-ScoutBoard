@@ -25,7 +25,7 @@ def test_por_padrao_sobe_o_site_sem_atualizar_os_dados(monkeypatch):
     monkeypatch.setattr(iniciar, "atualizar_dados", nao_deveria_rodar)
     app_falso = preparar(monkeypatch)
     assert iniciar.main([]) == 0
-    assert iniciar.main(["--sem-coleta", "--porta", "5123"]) == 0  # opção antiga: continua aceita
+    assert iniciar.main(["--porta", "5123"]) == 0
     app_falso.chamadas.pop(0)
     assert app_falso.chamadas == [{"host": "127.0.0.1", "port": 5123, "debug": False, "use_reloader": False}]
 

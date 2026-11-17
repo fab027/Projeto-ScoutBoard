@@ -17,6 +17,8 @@ lê só a página do time dele (coleta.cbf.Cache explica os níveis).
 Os ids da CBF mudam quando o clube vira SAF (Cruzeiro, Botafogo, Vasco...), então o casamento
 de times é feito por temporada e por fonte. O de jogadores usa o elenco do time na CBF.
 """
+import logging
+
 from coleta import cbf, commons, espn, fotmob, thesportsdb
 from coleta.cbf import ERROS_FONTE as ERROS_CBF
 from coleta.nomes import normalizar
@@ -24,6 +26,7 @@ from config import FOTOS_LENTAS
 from sb_web.classificacao import nome_exibicao as classificacao_nome
 from sb_web.painel import Dados
 
+log = logging.getLogger(__name__)
 CANDIDATOS_PARA_DESEMPATE = 4  # homônimos no elenco cujas páginas valem ser lidas para desempatar
 
 
@@ -102,9 +105,9 @@ class FonteCBF:
 
         Só a reserva consulta uma temporada: `ano` ou, sem ela, a última do time na base.
         """
-        sem_cbf = self.commons.escudo(team_id) or self.fotmob.escudo(team_id)
-        if sem_cbf:
-            return sem_cbf
+        escudo_de_commons_ou_fotmob = self.commons.escudo(team_id) or self.fotmob.escudo(team_id)
+        if escudo_de_commons_ou_fotmob:
+            return escudo_de_commons_ou_fotmob
         temporadas = self._temporadas_do_time.get(team_id, [])
         if ano not in temporadas:
             ano = temporadas[0] if temporadas else None
@@ -181,8 +184,8 @@ class FonteCBF:
                 if foto:
                     return foto
                 nomes += [achado["apelido"], achado["nome"]]
-        except ERROS_CBF:
-            pass
+        except ERROS_CBF as erro:
+            log.warning("Atleta da CBF indisponível para a foto de %s: %s", player_id, erro)
         passagens = self._passagens_de(player_id)
         do_commons = self.commons.foto_jogador(nomes, [int(t) for _, t, _ in passagens], [a for a, _, _ in passagens])
         if do_commons:

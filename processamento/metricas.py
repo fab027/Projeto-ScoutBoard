@@ -8,8 +8,6 @@ Uso (a partir da raiz do projeto):
     python -m processamento.metricas
 """
 
-import argparse
-
 import pandas as pd
 
 from socceraction.spadl import config as spadl
@@ -40,50 +38,6 @@ CONTAGENS = {
     "passes": [TIPO_PASSE],
 }
 
-# Padrão SPADL: 105.0 x 68.0 (altere MAX_X para 150.0 se tiver reescalado o campo)
-MAX_X = 105.0
-MAX_Y = 68.0
-
-
-def normalizar_orientacao_spadl(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Garante que todos os times ataquem sempre da esquerda para a direita (0 -> MAX_X)
-    em todas as partidas, invertendo X e Y quando o time ataca de MAX_X -> 0.
-    """
-    df = df.copy()
-    chaves = ["game_id", "team_id"]
-    if "period_id" in df.columns:
-        chaves.append("period_id")
-
-    # 1. Critério principal: média de start_x das finalizações (type_id == 11)
-    chutes = df[df["type_id"] == 11].groupby(chaves)["start_x"].mean()
-    ataca_para_esquerda = chutes < (MAX_X / 2.0)
-
-    # 2. Fallback (caso um time não tenha finalizado no período): avanço médio dos passes (dx < 0)
-    df["_dx"] = df["end_x"] - df["start_x"]
-    passes_dx = df[df["type_id"] == 0].groupby(chaves)["_dx"].mean()
-    sem_chute_invertido = passes_dx < 0
-
-    # Combina os dois critérios (priorizando a direção das finalizações)
-    inverter_grupo = ataca_para_esquerda.reindex(passes_dx.index).fillna(sem_chute_invertido)
-    grupos_invertidos = inverter_grupo[inverter_grupo].index
-
-    # Cria máscara booleana para as linhas que precisam de inversão
-    mask = df.set_index(chaves).index.isin(grupos_invertidos)
-
-    # Inverte start_x / end_x e start_y / end_y
-    df.loc[mask, "start_x"] = MAX_X - df.loc[mask, "start_x"]
-    df.loc[mask, "start_y"] = MAX_Y - df.loc[mask, "start_y"]
-
-    if "end_x" in df.columns:
-        mask_end_x = mask & df["end_x"].notna()
-        df.loc[mask_end_x, "end_x"] = MAX_X - df.loc[mask_end_x, "end_x"]
-
-    if "end_y" in df.columns:
-        mask_end_y = mask & df["end_y"].notna()
-        df.loc[mask_end_y, "end_y"] = MAX_Y - df.loc[mask_end_y, "end_y"]
-
-    return df.drop(columns=["_dx"])
 
 def sem_placeholders(eventos: pd.DataFrame) -> pd.DataFrame:
     """Remove eventos sem jogador real: id ausente, id 0 ou nome numérico ("0.0").
@@ -147,7 +101,6 @@ def construir_tabela(pasta_origem=DADOS_BRUTOS) -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    argparse.ArgumentParser(description="Gera dados/metricas_jogador_jogo.parquet a partir de dados/brutos.").parse_args()
     tabela = construir_tabela()
     tabela.to_parquet(METRICAS, index=False)
     print(f"{len(tabela)} linhas gravadas em {METRICAS}")

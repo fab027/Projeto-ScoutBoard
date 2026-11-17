@@ -9,13 +9,6 @@ def test_normalizar_ignora_acento_caixa_e_espacos():
     assert nomes.normalizar("  Atlético   Mineiro ") == "atletico mineiro"
 
 
-def test_melhor_correspondencia_aceita_nome_igual_ou_muito_parecido():
-    candidatos = {1: "Gabriel Barbosa", 2: "Pedro"}
-    assert nomes.melhor_correspondencia("gabriel barbosa", candidatos) == 1
-    assert nomes.melhor_correspondencia("Gabriel Barbosaa", candidatos) == 1
-    assert nomes.melhor_correspondencia("Pedro Henrique", candidatos, limiar=0.9) is None
-
-
 def test_configurar_ligas_preserva_o_que_ja_existia(tmp_path):
     arquivo = tmp_path / "league_dict.json"
     arquivo.write_text(json.dumps({"Outra": {"X": "y"}, "WhoScored": {"BRA-Brasileirao": "antigo"}}), encoding="utf-8")

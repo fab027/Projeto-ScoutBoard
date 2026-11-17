@@ -41,6 +41,8 @@ PREMIOS = [
 MINIMO_MINUTOS_PADRAO = 90
 MINIMO_MINUTOS_PERCENTIL = 450  # cinco jogos inteiros: abaixo disso o "por 90 minutos" engana
 LIMITE_PAGINA = 50
+COMPRIMENTO_CAMPO = 105.0
+LARGURA_CAMPO = 68.0
 
 
 @dataclass
@@ -105,9 +107,6 @@ class Dados:
             {"team_id": int(t), "time": self.nomes.get(int(t), f"Time {t}")}
             for t in sorted(self.temporada(temporada)["team_id"].unique())
         ]
-
-COMPRIMENTO_CAMPO = 105.0
-LARGURA_CAMPO = 68.0
 
 
 def _normalizar_posicoes(metricas: pd.DataFrame) -> pd.DataFrame:
@@ -445,14 +444,14 @@ def painel(
     for metrica in (x, y):
         if metrica not in METRICAS_DISPERSAO:
             raise ValueError(f"Métrica inválida: {metrica}")
-    if jogo is not None and jogo not in set(base["game_id"]):
+    if jogo is not None and not (base["game_id"] == jogo).any():
         raise ValueError(f"Jogo {jogo} não existe na temporada {temporada}")
     if jogo is None and time is None:
         agg = dados.agregado(temporada)
     else:
         f_jogo = base if jogo is None else base[base["game_id"] == jogo]
         agg = agregar_jogadores(f_jogo if time is None else f_jogo[f_jogo["team_id"] == time], dados.nomes)
-    if jogador is not None and jogador not in set(agg["player_id"]):
+    if jogador is not None and not (agg["player_id"] == jogador).any():
         raise ValueError(f"Jogador {jogador} não está no recorte selecionado")
 
     detalhe = None

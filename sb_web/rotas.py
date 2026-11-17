@@ -190,13 +190,12 @@ def foto_atleta(ano: str, atleta_id: int):
     except ERROS_CBF:
         achado = None
     if not achado and request.args.get("nome"):
-        return foto_nome()
+        return _foto_por_nome()
     return _imagem(achado)
 
 
-@site_bp.get("/foto/nome")
-def foto_nome():
-    """Foto pelo nome e clube, no TheSportsDB (artilharia vinda da ESPN, que não traz foto)."""
+def _foto_por_nome() -> Response:
+    """Foto pelo nome e clube (?nome=&clube=), no TheSportsDB (artilharia vinda da ESPN, que não traz foto)."""
     nome, clube = request.args.get("nome", "").strip(), request.args.get("clube", "").strip()
     if not nome or not clube:
         abort(404)
@@ -204,6 +203,11 @@ def foto_nome():
         return _imagem(fonte().foto_por_nome(nome, clube))
     except ERROS_CBF:
         abort(404)
+
+
+@site_bp.get("/foto/nome")
+def foto_nome():
+    return _foto_por_nome()
 
 
 @site_bp.get("/foto/treinador")

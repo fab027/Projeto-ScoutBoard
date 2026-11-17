@@ -175,11 +175,6 @@ def ler_atleta(html: str) -> dict:
     return {"partidas": _inteiro(estatisticas.get("qtd_partidas")), "foto": _foto_do_fluxo(texto)}
 
 
-def ler_foto(html: str) -> tuple[bytes, str] | None:
-    """Imagem (conteúdo e tipo) da foto do atleta, embutida na página como data URI."""
-    return _foto_do_fluxo(fluxo(html))
-
-
 def _foto_do_fluxo(texto: str) -> tuple[bytes, str] | None:
     achado = re.search(r'"atleta_foto":"((?:[^"\\]|\\.)*)"', texto)
     if not achado:

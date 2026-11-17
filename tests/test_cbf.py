@@ -52,16 +52,20 @@ def test_ler_time_traz_elenco_e_jogos_com_data_ordenavel():
                                "visitante": 20031, "gols_mandante": 1, "gols_visitante": None}]
 
 
-def test_ler_foto_resolve_bloco_de_texto_do_next():
+def _foto(html):
+    return cbf._foto_do_fluxo(cbf.fluxo(html))
+
+
+def test_foto_resolve_bloco_de_texto_do_next():
     imagem = b"\xff\xd8\xff\xe0foto"
     uri = "data:image/jpeg;base64," + base64.b64encode(imagem).decode()
     html = pagina_next('23:{"atleta_foto":"$26","atleta_id":"1"}', f"26:T{len(uri):x},", uri)
-    assert cbf.ler_foto(html) == (imagem, "image/jpeg")
+    assert _foto(html) == (imagem, "image/jpeg")
 
 
-def test_ler_foto_sem_foto_devolve_none():
-    assert cbf.ler_foto(pagina_next('{"atleta_foto":"","atleta_id":"1"}')) is None
-    assert cbf.ler_foto(pagina_next('{"atleta_id":"1"}')) is None
+def test_foto_sem_foto_devolve_none():
+    assert _foto(pagina_next('{"atleta_foto":"","atleta_id":"1"}')) is None
+    assert _foto(pagina_next('{"atleta_id":"1"}')) is None
 
 
 # ---------- Casamento com a base ----------

@@ -1,0 +1,3 @@
+# Testes (além do requirements.txt). Instale com: python -m pip install -r requirements-dev.txt
+-r requirements.txt
+pytest==9.1.1

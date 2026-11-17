@@ -27,11 +27,10 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Sobe o ScoutBoard.")
     parser.add_argument("--atualizar-tecnicos", action="store_true",
                         help="atualiza os técnicos antes de subir o site (leva alguns minutos)")
-    parser.add_argument("--sem-coleta", action="store_true", help="aceito por compatibilidade: já é o padrão")
     parser.add_argument("--porta", type=int, default=5000)
     args = parser.parse_args(argv)
 
-    if args.atualizar_tecnicos and not args.sem_coleta:
+    if args.atualizar_tecnicos:
         atualizar_dados()
 
     import sb_web
