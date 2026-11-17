@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+{% from "_macros.html" import avatar, escudo, resultado %}
+{% block titulo %}Classificação {{ temporada }}{% endblock %}
+{# Artilharia calculada pela base (parquet), com link para o jogador no painel. #}
+{% macro artilharia_da_base() -%}
+  {%- if artilharia_base %}
+  <h2>Artilharia</h2>
+  <ol class="lista-resultados">
+    {% for a in artilharia_base %}
+    <li>
+      {{ avatar(a.player, a.foto, 'sm') }}
+      <div>
+        <a href="{{ url_for('site.inicio', jogador=a.player_id, temporada=temporada) }}"><strong>{{ a.player }}</strong></a>
+        <span class="apoio">{{ escudo(a.time, a.escudo, a.team_id) }} {{ a.time }}</span>
+      </div>
+      <span class="gols">{{ a.gols }}</span>
+    </li>
+    {% endfor %}
+  </ol>
+  {%- endif %}
+{%- endmacro %}
+{% block conteudo %}
+  <div class="cabecalho-pagina">
+    <h1>Classificação do Brasileirão</h1>
+    <form method="get" class="filtros-linha">
+      <label>Temporada
+        <select name="temporada" onchange="this.form.submit()">
+          {% for t in temporadas|reverse %}<option value="{{ t }}" {{ 'selected' if t == temporada }}>{{ t }}</option>{% endfor %}
+        </select>
+      </label>
+      <input type="hidden" name="recorte" value="{{ recorte }}">
+      <noscript><button type="submit">Aplicar</button></noscript>
+    </form>
+  </div>
+
+  {% if erro %}<p class="erro" role="alert">{{ erro }}</p>{% endif %}
+
+  {% if cbf %}
+    <nav class="recortes" aria-label="Recorte da tabela">
+      {% for chave, rotulo in recortes.items() %}
+        <a href="{{ url_for('site.times', temporada=temporada, recorte=chave) }}"
+           class="{{ 'ativo' if chave == recorte }}" {{ 'aria-current=page' if chave == recorte }}>{{ rotulo }}</a>
+      {% endfor %}
+    </nav>
+    <p class="apoio situacao">
+      {% if cbf.encerrada %}Temporada encerrada.{% else %}Até a rodada {{ cbf.rodada }}.{% endif %}
+      {% if cbf.fonte == 'CBF' %}Dados oficiais da CBF{% else %}Dados da {{ cbf.fonte }}: o site da CBF não respondeu agora{% endif %}{% if recorte != 'geral' %}; o recorte {{ recortes[recorte]|lower }} conta só os jogos {{ 'em casa' if recorte == 'casa' else 'fora de casa' }}{% endif %}.
+    </p>
+
+    {% if cbf.destaques %}
+    <section class="premios-linha destaques" aria-label="Destaques da temporada">
+      {% for d in cbf.destaques %}
+      <article class="premio">
+        <span class="apoio">{{ d.titulo }}</span>
+        <div class="premio-quem">
+          {{ escudo(d.time, d.escudo, d.team_id) }}
+          <strong>{{ d.time }}</strong>
+        </div>
+        <span><span class="valor">{{ d.valor }}</span> <span class="apoio">{{ d.sufixo }}</span></span>
+      </article>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    <div class="classificacao-grade">
+      <section class="cartao">
+        <h2>{{ 'Tabela' if recorte == 'geral' else 'Campanha como ' ~ recortes[recorte]|lower }}</h2>
+        <div class="rolagem">
+          <table class="tabela-classificacao">
+            <thead>
+              <tr>
+                <th scope="col"><abbr title="Posição">#</abbr></th>
+                <th scope="col">Time</th>
+                <th scope="col" class="num pts"><abbr title="Pontos">Pts</abbr></th>
+                <th scope="col" class="num"><abbr title="Jogos">J</abbr></th>
+                <th scope="col" class="num"><abbr title="Vitórias">V</abbr></th>
+                <th scope="col" class="num"><abbr title="Empates">E</abbr></th>
+                <th scope="col" class="num"><abbr title="Derrotas">D</abbr></th>
+                <th scope="col" class="num"><abbr title="Gols pró">GP</abbr></th>
+                <th scope="col" class="num"><abbr title="Gols contra">GC</abbr></th>
+                <th scope="col" class="num"><abbr title="Saldo de gols">SG</abbr></th>
+                <th scope="col" class="num"><abbr title="Aproveitamento dos pontos disputados">%</abbr></th>
+                {% if recorte == 'geral' %}
+                <th scope="col" class="num"><abbr title="Cartões amarelos">CA</abbr></th>
+                <th scope="col" class="num"><abbr title="Cartões vermelhos">CV</abbr></th>
+                {% endif %}
+                <th scope="col"><abbr title="Do mais antigo para o mais recente">Últimos jogos</abbr></th>
+                {% if recorte == 'geral' and not cbf.encerrada %}<th scope="col">Próximo</th>{% endif %}
+              </tr>
+            </thead>
+            <tbody>
+              {% for t in cbf.linhas %}
+              <tr class="{{ 'zona-' ~ t.zona if t.zona }}">
+                <td class="posicao">
+                  <span>{{ t.posicao }}</span>
+                  {% if t.evolucao > 0 %}<span class="evolucao sobe" title="Subiu {{ t.evolucao }} na última rodada">▲{{ t.evolucao }}</span>
+                  {% elif t.evolucao < 0 %}<span class="evolucao desce" title="Caiu {{ -t.evolucao }} na última rodada">▼{{ -t.evolucao }}</span>{% endif %}
+                </td>
+                <td class="celula-quem">
+                  {{ escudo(t.time, t.escudo, t.team_id or t.cbf_id) }}
+                  {% if t.team_id and na_base %}<a href="{{ url_for('site.inicio', time=t.team_id, temporada=temporada) }}">{{ t.time }}</a>
+                  {% else %}<span>{{ t.time }}</span>{% endif %}
+                </td>
+                <td class="num pts">{{ t.pontos }}</td>
+                <td class="num">{{ t.jogos }}</td><td class="num">{{ t.vitorias }}</td><td class="num">{{ t.empates }}</td><td class="num">{{ t.derrotas }}</td>
+                <td class="num">{{ t.gols_pro }}</td><td class="num">{{ t.gols_contra }}</td>
+                <td class="num">{{ '%+d'|format(t.saldo) if t.saldo else 0 }}</td>
+                <td class="num">{{ t.aproveitamento if t.aproveitamento is not none else '–' }}</td>
+                {% if recorte == 'geral' %}
+                <td class="num">{{ t.amarelos if t.amarelos is not none else '–' }}</td>
+                <td class="num">{{ t.vermelhos if t.vermelhos is not none else '–' }}</td>
+                {% endif %}
+                <td><span class="sequencia">{% for jogo in t.sequencia %}{{ resultado(jogo) }}{% endfor %}</span></td>
+                {% if recorte == 'geral' and not cbf.encerrada %}
+                <td class="proximo">{% if t.proximo %}{{ escudo(t.proximo.adversario, t.proximo.escudo, t.proximo.adversario_id) }}<span class="sr-only">Próximo adversário: {{ t.proximo.adversario }}</span>{% else %}–{% endif %}</td>
+                {% endif %}
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% if recorte == 'geral' %}
+        <ul class="legenda-zonas" aria-label="Zonas da tabela">
+          {% for faixa, classe, rotulo in zonas %}
+          <li><span class="marca-zona zona-{{ classe }}"></span>{{ faixa|first }}º a {{ faixa|last }}º: {{ rotulo }}</li>
+          {% endfor %}
+        </ul>
+        <p class="apoio nota">Faixas usuais; o número de vagas muda conforme os campeões da Copa do Brasil e da Libertadores.
+          {% if not cbf.encerrada %}Em “Próximo”, o escudo é do adversário no próximo jogo.{% endif %}</p>
+        {% endif %}
+      </section>
+
+      <aside class="cartao artilharia">
+        {{ artilharia_da_base() }}
+        {% for titulo, lista, vazio in [('Artilharia', cbf.artilharia, None if artilharia_base else 'Artilharia indisponível nesta temporada.'),
+                                         ('Assistências', cbf.assistencias, None)] %}
+        {% if lista or vazio %}
+        <h2>{{ titulo }}</h2>
+        <ol class="lista-resultados">
+          {% for a in lista %}
+          <li>
+            {% if cbf.fonte == 'CBF' %}{% set foto = url_for('site.foto_atleta', ano=temporada, atleta_id=a.atleta_id, nome=a.apelido, clube=a.clube) %}
+            {% else %}{% set foto = url_for('site.foto_nome', nome=a.apelido, clube=a.clube) %}{% endif %}
+            {{ avatar(a.apelido, foto, 'sm') }}
+            <div>
+              <strong>{{ a.apelido }}</strong>
+              <span class="apoio">{{ escudo(a.clube, a.escudo, a.cbf_id) }} {{ a.clube }}</span>
+            </div>
+            <span class="gols">{{ a.gols }}</span>
+          </li>
+          {% else %}
+          <li>{{ vazio }}</li>
+          {% endfor %}
+        </ol>
+        {% endif %}
+        {% endfor %}
+      </aside>
+    </div>
+
+    {% if recorte == 'geral' %}
+    <section class="cartao">
+      <h2>Ataque e defesa</h2>
+      <div class="rolagem">
+        <table class="tabela-rank">
+          <thead><tr>
+            <th scope="col">#</th><th scope="col">Time</th>
+            <th scope="col" class="num">Gols por jogo</th><th scope="col" class="num">Sofridos por jogo</th>
+            <th scope="col" class="num">Jogos sem sofrer gol</th>
+          </tr></thead>
+          <tbody>
+            {% for t in cbf.linhas %}
+            <tr>
+              <td>{{ t.posicao }}</td>
+              <td class="celula-quem">{{ escudo(t.time, t.escudo, t.team_id or t.cbf_id) }}<span>{{ t.time }}</span></td>
+              <td class="num">{{ '%.2f'|format(t.gols_por_jogo) if t.gols_por_jogo is not none else '–' }}</td>
+              <td class="num">{{ '%.2f'|format(t.sofridos_por_jogo) if t.sofridos_por_jogo is not none else '–' }}</td>
+              <td class="num">{{ t.sem_sofrer if t.sem_sofrer is not none else '–' }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+    {% endif %}
+
+  {% elif tabela %}
+    {% if aviso_cbf %}<p class="aviso" role="status">A CBF não respondeu agora. Esta tabela foi calculada pelos gols dos eventos da base e pode diferir da oficial.</p>{% endif %}
+    {% if artilharia_base %}<aside class="cartao artilharia">{{ artilharia_da_base() }}</aside>{% endif %}
+    <section class="cartao">
+      <div class="rolagem">
+        <table class="tabela-rank">
+          <thead><tr><th>#</th><th>Time</th><th class="num">J</th><th class="num">V</th><th class="num">E</th><th class="num">D</th><th class="num">GP</th><th class="num">GC</th><th class="num">SG</th><th class="num">Pts</th></tr></thead>
+          <tbody>
+            {% for t in tabela %}
+            <tr>
+              <td>{{ loop.index }}</td>
+              <td class="celula-quem">{{ escudo(t.time, t.escudo, t.team_id) }}<span>{{ t.time }}</span></td>
+              <td class="num">{{ t.jogos }}</td><td class="num">{{ t.vitorias }}</td><td class="num">{{ t.empates }}</td><td class="num">{{ t.derrotas }}</td>
+              <td class="num">{{ t.gols_pro }}</td><td class="num">{{ t.gols_contra }}</td><td class="num">{{ t.saldo }}</td>
+              <td class="num"><strong>{{ t.pontos }}</strong></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  {% endif %}
+{% endblock %}

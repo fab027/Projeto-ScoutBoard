@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block titulo %}Painel{% endblock %}
+{% block scripts %}
+  <script src="{{ url_for('static', filename='vendor/plotly-2.35.2.min.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+{% endblock %}
+{% block conteudo %}
+  <div class="grade">
+    <aside class="coluna-filtros">
+      <section class="cartao titulo">
+        <h1>Painel do Brasileirão</h1>
+        <p id="resumo" class="apoio">Carregando dados…</p>
+      </section>
+
+      <section class="cartao filtros" aria-label="Filtros">
+        <label>Temporada <select id="temporada"></select></label>
+        <label>Jogo <select id="jogo"><option value="">Todos os jogos</option></select></label>
+        <label>Time <select id="time"><option value="">Todos os times</option></select></label>
+        <label>Jogador <select id="jogador"><option value="">Todos os jogadores</option></select></label>
+        <button type="button" id="limpar" class="botao-secundario">Limpar filtros</button>
+        <p id="erro" class="erro" role="alert" hidden></p>
+      </section>
+    </aside>
+
+    <div class="coluna-principal">
+      <div class="linha-graficos">
+        <section class="cartao dispersao">
+          <div class="cabecalho-cartao">
+            <div>
+              <h2>Dispersão de jogadores</h2>
+              <p class="apoio">Cada ponto é um jogador, com valores por 90 minutos. Clique num ponto para selecioná-lo.</p>
+            </div>
+            <div class="controles">
+              <label>Eixo X <select id="eixo-x"></select></label>
+              <label>Eixo Y <select id="eixo-y"></select></label>
+            </div>
+          </div>
+          <div id="grafico-dispersao" class="grafico"></div>
+        </section>
+
+        <section class="cartao mapa">
+          <div class="cabecalho-cartao">
+            <div>
+              <h2>Posição média no campo</h2>
+              <p class="apoio">Cada ponto é a posição média de um jogador. Em amarelo, o jogador selecionado.</p>
+            </div>
+          </div>
+          <div class="campo-moldura">
+            <svg id="campo" viewBox="0 0 105 68" role="img" aria-label="Campo com a posição média dos jogadores"></svg>
+          </div>
+        </section>
+      </div>
+
+      <!-- Só aparecem com um time ou jogador selecionado; ficam ocultos até lá. -->
+      <div class="linha-detalhe">
+        <section class="cartao" id="detalhe-jogador" hidden></section>
+        <section class="cartao" id="treinador" aria-live="polite" hidden></section>
+      </div>
+    </div>
+  </div>
+{% endblock %}

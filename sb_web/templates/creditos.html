@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block titulo %}Créditos das imagens{% endblock %}
+{% block conteudo %}
+  <div class="cabecalho-pagina">
+    <h1>Créditos das imagens</h1>
+    <p class="apoio">Escudos e fotos do <a href="https://commons.wikimedia.org/" rel="noopener">Wikimedia Commons</a>,
+      carregados direto de lá. Cada arquivo tem autor e licença na página dele. Os escudos são marcas dos clubes.
+      As demais fotos de jogadores vêm do FotMob, com os ids reunidos pelo
+      <a href="https://brasileiraoemdados.com.br/" rel="noopener">Brasileirão em Dados</a>.</p>
+  </div>
+
+  <section class="cartao">
+    {% if creditos %}
+    <div class="rolagem">
+      <table class="tabela-rank">
+        <thead><tr><th>Uso</th><th>Arquivo</th><th>Autor</th><th>Licença</th></tr></thead>
+        <tbody>
+          {% for c in creditos %}
+          <tr>
+            <td>{{ c.uso }}</td>
+            <td><a href="{{ c.pagina }}" rel="noopener">{{ c.arquivo }}</a></td>
+            <td>{{ c.autor or 'ver a página do arquivo' }}</td>
+            <td>{{ c.licenca or 'ver a página do arquivo' }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}<p class="apoio">Nenhuma imagem do Wikimedia Commons foi carregada ainda.</p>{% endif %}
+  </section>
+{% endblock %}

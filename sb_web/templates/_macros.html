@@ -1,0 +1,35 @@
+{# Imagem externa (FotMob, Wikimedia Commons, CBF ou ESPN) por cima da reserva. Enquanto carrega, a reserva aparece;
+   quando carrega, a classe com-imagem tira o fundo da reserva; se falhar, a imagem se remove. #}
+{% macro imagem(src) -%}
+  {%- if src %}<img src="{{ src }}" alt="" loading="lazy" onload="this.parentNode.classList.add('com-imagem')" onerror="this.remove()">{% endif -%}
+{%- endmacro %}
+
+{# Avatar de jogador ou treinador: as iniciais, cobertas pela foto quando ela existe. #}
+{% macro avatar(nome, foto=None, tamanho="md") -%}
+  <span class="avatar avatar-{{ tamanho }} avatar-iniciais" aria-hidden="true">{{ (nome or '?')[:2]|upper }}{{ imagem(foto) }}</span>
+{%- endmacro %}
+
+{# Escudo do time: distintivo com a sigla e uma cor fixa por time, coberto pelo escudo quando ele existe. #}
+{% macro escudo(time, src=None, team_id=0) -%}
+  <span class="escudo escudo-gerado" style="--cor: hsl({{ ((team_id or 0) * 47) % 360 }} 55% 38%)" aria-hidden="true">{{ (time or '?')[:3]|upper }}{{ imagem(src) }}</span>
+{%- endmacro %}
+
+{# Campo de formulário do WTForms: rótulo, controle e os erros da validação do servidor ligados a ele. #}
+{% macro campo(field) -%}
+  <div class="campo{{ ' campo-invalido' if field.errors }}">
+    {{ field.label }}
+    {% if field.errors %}
+      {{ field(**dict(kwargs, **{'aria-invalid': 'true', 'aria-describedby': field.id ~ '-erro'})) }}
+      <p class="erro" id="{{ field.id }}-erro" role="alert">{{ field.errors|join(' ') }}</p>
+    {% else %}
+      {{ field(**kwargs) }}
+    {% endif %}
+  </div>
+{%- endmacro %}
+
+{# Resultado de um jogo na sequência recente: V, E ou D, com o placar na dica quando ele é conhecido. #}
+{% macro resultado(jogo) -%}
+  {%- set nome = {'V': 'Vitória', 'E': 'Empate', 'D': 'Derrota'}[jogo.resultado] -%}
+  <span class="resultado resultado-{{ jogo.resultado|lower }}"
+        title="{% if jogo.placar %}{{ jogo.placar }} contra {{ jogo.adversario }} ({{ 'em casa' if jogo.casa else 'fora' }}{{ ', rodada ' ~ jogo.rodada if jogo.rodada }}){% else %}{{ nome }}{% endif %}">{{ jogo.resultado }}</span>
+{%- endmacro %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% from "_macros.html" import avatar, escudo %}
+{% block titulo %}Busca{% endblock %}
+{% block conteudo %}
+  <div class="cabecalho-pagina">
+    <h1>Busca</h1>
+    {% if termo %}<p class="apoio">Resultados para "{{ termo }}"</p>{% else %}<p class="apoio">Digite pelo menos 2 letras no campo de busca.</p>{% endif %}
+  </div>
+
+  {% if termo %}
+  <section class="cartao">
+    <h2>Jogadores ({{ jogadores|length }})</h2>
+    {% if jogadores %}
+    <ul class="lista-resultados">
+      {% for j in jogadores %}
+      <li>
+        {{ avatar(j.player, j.foto) }}
+        <div>
+          <a href="{{ url_for('site.inicio', jogador=j.player_id, temporada=j.temporada) }}"><strong>{{ j.player }}</strong></a>
+          <span class="apoio">{{ escudo(j.time, j.escudo, j.team_id) }} {{ j.time }} · última temporada {{ j.temporada }}</span>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}<p class="apoio">Nenhum jogador encontrado.</p>{% endif %}
+  </section>
+
+  <section class="cartao">
+    <h2>Treinadores ({{ treinadores|length }})</h2>
+    {% if treinadores %}
+    <ul class="lista-resultados">
+      {% for t in treinadores %}
+      <li>
+        {{ avatar(t.treinador, t.foto) }}
+        <div>
+          <a href="{{ url_for('site.inicio', time=t.team_id) }}"><strong>{{ t.treinador }}</strong></a>
+          <span class="apoio">{{ escudo(t.time, t.escudo, t.team_id) }} {{ t.time }} · {{ 'técnico atual' if t.atual else 'técnico anterior' }}</span>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}<p class="apoio">Nenhum treinador encontrado.</p>{% endif %}
+  </section>
+  {% endif %}
+{% endblock %}

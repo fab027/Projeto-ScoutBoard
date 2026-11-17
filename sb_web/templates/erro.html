@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block titulo %}{{ titulo }}{% endblock %}
+{% block conteudo %}
+  <section class="cartao pagina-erro">
+    <p class="codigo-erro" aria-hidden="true">{{ status }}</p>
+    <h1>{{ titulo }}</h1>
+    <p class="apoio">{{ mensagem }}</p>
+    <p><a class="botao" href="{{ url_for('site.inicio') }}">Voltar ao início</a></p>
+  </section>
+{% endblock %}

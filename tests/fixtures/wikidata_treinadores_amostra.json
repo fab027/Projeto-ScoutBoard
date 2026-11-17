@@ -1,0 +1,1161 @@
+{
+ "head": {
+  "vars": [
+   "club",
+   "clubLabel",
+   "coach",
+   "coachLabel",
+   "start",
+   "end"
+  ]
+ },
+ "results": {
+  "bindings": [
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q1274296"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q10346785"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Esporte Clube Santo André"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Paulo Roberto Santos"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q17479"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q40652"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Clube de Regatas do Flamengo"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Tite"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2023-10-09T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2024-09-30T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q17479"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q1089864"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Clube de Regatas do Flamengo"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Jorge Sampaoli"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2023-04-17T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2023-09-28T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q17479"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q556610"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Clube de Regatas do Flamengo"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Vítor Pereira"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2023-01-01T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2023-04-10T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q17479"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q350547"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Clube de Regatas do Flamengo"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Filipe Luís"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2024-09-30T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2026-03-02T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q17479"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q1249859"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Clube de Regatas do Flamengo"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Rogério Ceni"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2020-11-10T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2021-07-10T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q17479"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q527550"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Clube de Regatas do Flamengo"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Jorge Jesus"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2019-06-01T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2020-07-17T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q17479"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q663127"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Clube de Regatas do Flamengo"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Reinaldo Rueda"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2017-08-14T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2018-01-07T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q17479"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q1608978"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Clube de Regatas do Flamengo"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Dorival Júnior"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2022-06-10T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2022-11-25T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q17479"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q101424710"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Clube de Regatas do Flamengo"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Maurício Souza"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2021-11-29T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2021-12-29T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q17479"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q314440"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Clube de Regatas do Flamengo"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Paulo Sousa"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2021-12-29T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2022-06-10T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q17479"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q24082703"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Clube de Regatas do Flamengo"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Domènec Torrent"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2020-07-31T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2020-11-09T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q188277"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q191634"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Cruzeiro Esporte Clube"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Felipão"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2020-10-16T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2021-01-25T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q188277"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q1249859"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Cruzeiro Esporte Clube"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Rogério Ceni"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2019-08-13T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2019-09-26T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q188277"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q81115"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Cruzeiro Esporte Clube"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Mano Menezes"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2016-07-27T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2019-08-08T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q188277"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q314281"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Cruzeiro Esporte Clube"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Vanderlei Luxemburgo"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2021-08-03T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2021-12-28T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q188277"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q2162382"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Cruzeiro Esporte Clube"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Leonardo Jardim"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2025-02-04T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2025-12-15T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q188277"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q2740889"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Cruzeiro Esporte Clube"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Paulo Pezzolano"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2022-01-04T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2023-03-19T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q188277"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q24338838"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Cruzeiro Esporte Clube"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Zé Ricardo"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2023-09-06T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2023-11-13T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q188277"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q10281320"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Cruzeiro Esporte Clube"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Fernando Diniz"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2024-09-24T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2025-01-27T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q188277"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q32981622"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Cruzeiro Esporte Clube"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Nicolás Larcamón"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2024-01-01T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2024-04-08T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q188277"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q1086686"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Cruzeiro Esporte Clube"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Felipe Conceição"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2021-02-01T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2021-06-10T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q188277"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q18127270"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Cruzeiro Esporte Clube"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Pepa (treinador)"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2023-03-20T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2023-08-28T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q188277"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q125404072"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Cruzeiro Esporte Clube"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Fernando Seabra"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2024-04-09T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2024-09-23T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q198032"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q104524446"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Esporte Clube Bahia"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Renato Paiva"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2023-01-01T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2023-09-06T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q198032"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q1284791"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Esporte Clube Bahia"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Enderson Moreira"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2022-07-01T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2022-10-01T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q198032"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q5621833"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Esporte Clube Bahia"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Guto Ferreira"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2021-10-08T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2022-06-26T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q198032"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q81115"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Esporte Clube Bahia"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Mano Menezes"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2020-09-11T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2020-12-20T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q198032"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q63168936"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Esporte Clube Bahia"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Eduardo Barroca"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2022-10-03T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2022-12-06T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q198032"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q1249859"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Esporte Clube Bahia"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Rogério Ceni"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2023-09-09T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q198034"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q55081208"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Atlético Clube Goianiense"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Umberto Louzer"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2024-08-05T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2024-10-29T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q198034"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q1625330"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Atlético Clube Goianiense"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Vagner Mancini"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2024-07-08T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2024-08-05T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q198034"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q131007830"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Atlético Clube Goianiense"
+    },
+    "coachLabel": {
+     "xml:lang": "en",
+     "type": "literal",
+     "value": "Anderson Gomes"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2024-10-30T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2024-12-02T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q198034"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q63168936"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Atlético Clube Goianiense"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Eduardo Barroca"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2021-05-28T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2021-09-28T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q198034"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q17995977"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Atlético Clube Goianiense"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Rafael Guanaes"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2024-12-02T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2025-03-03T00:00:00Z"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q204675"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q1373640"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Associação Portuguesa de Desportos"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Geninho"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q218334"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q380411"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Figueirense Futebol Clube"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Adílson Batista"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q219098"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q27057682"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Sport Club do Recife"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Jair Ventura"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q219120"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q5621833"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Associação Atlética Ponte Preta"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Guto Ferreira"
+    }
+   },
+   {
+    "club": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q35933"
+    },
+    "coach": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q314281"
+    },
+    "clubLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Sport Club Corinthians Paulista"
+    },
+    "coachLabel": {
+     "xml:lang": "pt",
+     "type": "literal",
+     "value": "Vanderlei Luxemburgo"
+    },
+    "start": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2023-05-02T00:00:00Z"
+    },
+    "end": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "2023-09-27T00:00:00Z"
+    }
+   }
+  ]
+ }
+}

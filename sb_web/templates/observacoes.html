@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% from "_macros.html" import avatar %}
+{% block titulo %}Observações{% endblock %}
+{% block conteudo %}
+  <div class="cabecalho-pagina">
+    <h1>Observações{% if jogador %} de {{ jogador.player }}{% endif %}</h1>
+    <p class="apoio">
+      Anotações de scout com nota de 1 a 10, gravadas no banco de dados.
+      {% if jogador %}
+        <a href="{{ url_for('scout.lista') }}">Ver de todos os jogadores</a>
+      {% else %}
+        Para anotar, abra <a href="{{ url_for('site.jogadores') }}">Jogadores</a> e clique em “Anotar”.
+      {% endif %}
+    </p>
+    {% if jogador %}
+      <p><a class="botao" href="{{ url_for('scout.nova', jogador=player_id) }}">Nova observação</a></p>
+    {% endif %}
+  </div>
+
+  {% if resumo and not jogador %}
+  <section class="cartao">
+    <h2>Mais bem avaliados</h2>
+    <div class="rolagem">
+      <table class="tabela-observacoes">
+        <thead><tr><th>Jogador</th><th class="num">Média</th><th class="num">Observações</th></tr></thead>
+        <tbody>
+          {% for r in resumo %}
+          <tr>
+            <td><a href="{{ url_for('scout.lista', jogador=r.player_id) }}">{{ r.player }}</a></td>
+            <td class="num">{{ '%.1f'|format(r.media) }}</td>
+            <td class="num">{{ r.observacoes }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+  {% endif %}
+
+  <section class="cartao">
+    <h2>{{ observacoes|length }} {{ 'observação' if observacoes|length == 1 else 'observações' }}</h2>
+    <ul class="lista-observacoes">
+      {% for o in observacoes %}
+      <li class="observacao">
+        <div class="observacao-topo">
+          {{ avatar(o.jogador.player, url_for('site.foto_jogador', player_id=o.player_id, temporada=o.temporada), 'sm') }}
+          <div class="observacao-quem">
+            <a href="{{ url_for('scout.lista', jogador=o.player_id) }}">{{ o.jogador.player }}</a>
+            <span class="apoio">Temporada {{ o.temporada }} · por {{ o.autor }} ·
+              <time datetime="{{ o.criado_em.strftime('%Y-%m-%dT%H:%M:%SZ') }}">{{ o.criado_em.strftime('%d/%m/%Y') }}</time></span>
+          </div>
+          <span class="nota" title="Nota {{ o.nota }} de 10">{{ o.nota }}</span>
+        </div>
+        <p class="observacao-texto">{{ o.texto }}</p>
+        <form method="post" action="{{ url_for('scout.excluir', observacao_id=o.id) }}" class="observacao-acoes">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          {% if player_id is not none %}<input type="hidden" name="jogador" value="{{ player_id }}">{% endif %}
+          <button type="submit" class="botao-secundario" aria-label="Excluir a observação sobre {{ o.jogador.player }}">Excluir</button>
+        </form>
+      </li>
+      {% else %}
+      <li class="apoio">Nenhuma observação ainda.</li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endblock %}

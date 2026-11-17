@@ -1,0 +1,17 @@
+# Ambiente virtual e caches do Python
+venv/
+.venv/
+__pycache__/
+.pytest_cache/
+
+# Credenciais e tokens do Google Drive (ferramenta antiga, removida): nunca versionar
+ferramentas/envio_drive/credentials*.json
+ferramentas/envio_drive/token.json
+.env
+
+# Cache em texto das fontes externas (CBF, ESPN, TheSportsDB); imagens nunca são gravadas
+dados/cache/
+
+# Banco SQLite local do Flask-SQLAlchemy
+instance/
+*.db

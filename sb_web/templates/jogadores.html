@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% from "_macros.html" import avatar, escudo %}
+{% block titulo %}Jogadores{% endblock %}
+{% block conteudo %}
+  <div class="cabecalho-pagina">
+    <h1>Jogadores</h1>
+    <form method="get" class="filtros-linha" role="search">
+      <label>Temporada
+        <select name="temporada">
+          {% for t in temporadas|reverse %}<option value="{{ t }}" {{ 'selected' if t == temporada }}>{{ t }}</option>{% endfor %}
+        </select>
+      </label>
+      <label>Time
+        <select name="time">
+          <option value="">Todos os times</option>
+          {% for t in times %}<option value="{{ t.team_id }}" {{ 'selected' if t.team_id == time }}>{{ t.time }}</option>{% endfor %}
+        </select>
+      </label>
+      <label>Nome
+        <input type="search" name="termo" value="{{ termo }}" placeholder="Filtrar por nome">
+      </label>
+      <button type="submit">Filtrar</button>
+    </form>
+  </div>
+
+  {% if erro %}<p class="erro" role="alert">{{ erro }}</p>{% endif %}
+
+  <p class="apoio">{{ jogadores|length }} jogadores. Clique em um nome para abrir o painel com o jogador selecionado.</p>
+
+  <section class="cartao">
+    <div class="rolagem">
+      <table class="tabela-rank">
+        <thead><tr><th>Jogador</th><th>Time</th><th class="num">Jogos</th><th class="num">Gols</th><th class="num">Passes certos</th><th class="num">Desarmes</th><th class="num">Finalizações</th><th class="num">Ações</th><th>Scout</th></tr></thead>
+        <tbody>
+          {% for j in jogadores %}
+          <tr>
+            <td class="celula-quem">{{ avatar(j.player, j.foto, 'sm') }}<a href="{{ url_for('site.inicio', jogador=j.player_id, temporada=temporada) }}">{{ j.player }}</a></td>
+            <td class="celula-quem">{{ escudo(j.time, j.escudo, j.team_id) }}<span>{{ j.time }}</span></td>
+            <td class="num">{{ j.jogos }}</td>
+            <td class="num">{{ j.gols }}</td>
+            <td class="num">{{ j.passes_certos }}</td>
+            <td class="num">{{ j.desarmes }}</td>
+            <td class="num">{{ j.finalizacoes }}</td>
+            <td class="num">{{ j.acoes_totais }}</td>
+            <td><a href="{{ url_for('scout.nova', jogador=j.player_id, temporada=temporada) }}" aria-label="Anotar observação sobre {{ j.player }}">Anotar</a></td>
+          </tr>
+          {% else %}
+          <tr><td colspan="9">Nenhum jogador encontrado com esses filtros.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% from "_macros.html" import avatar, escudo %}
+{% block titulo %}Rankings{% endblock %}
+{% block conteudo %}
+  <div class="cabecalho-pagina">
+    <h1>Rankings de jogadores</h1>
+    <form method="get" class="filtros-linha">
+      <label>Temporada
+        <select name="temporada" onchange="this.form.submit()">
+          {% for t in temporadas|reverse %}<option value="{{ t }}" {{ 'selected' if t == temporada }}>{{ t }}</option>{% endfor %}
+        </select>
+      </label>
+      <label>Métrica
+        <select name="metrica" onchange="this.form.submit()">
+          {% for chave, rotulo in metricas.items() %}<option value="{{ chave }}" {{ 'selected' if chave == metrica }}>{{ rotulo }}</option>{% endfor %}
+        </select>
+      </label>
+      <noscript><button type="submit">Aplicar</button></noscript>
+    </form>
+  </div>
+
+  {% if erro %}<p class="erro" role="alert">{{ erro }}</p>{% endif %}
+
+  <section class="premios-linha" aria-label="Prêmios">
+    {% for p in premios %}
+      <article class="premio">
+        <span class="apoio">{{ p.titulo }}</span>
+        <div class="premio-quem">
+          {{ avatar(p.player, p.foto) }}
+          <div>
+            <strong>{{ p.player }}</strong>
+            <span class="apoio">{{ escudo(p.time, p.escudo, p.team_id) }} {{ p.time }}</span>
+          </div>
+        </div>
+        <div class="valor">{{ p.valor }}</div>
+      </article>
+    {% endfor %}
+  </section>
+
+  <section class="cartao">
+    <div class="rolagem">
+      <table class="tabela-rank">
+        <thead><tr><th>#</th><th>Jogador</th><th>Time</th><th class="num">Jogos</th><th class="num">{{ metricas[metrica] }}</th></tr></thead>
+        <tbody>
+          {% for j in ranking %}
+          <tr>
+            <td>{{ loop.index }}</td>
+            <td class="celula-quem">{{ avatar(j.player, j.foto, 'sm') }}<a href="{{ url_for('site.inicio', jogador=j.player_id, temporada=temporada) }}">{{ j.player }}</a></td>
+            <td class="celula-quem">{{ escudo(j.time, j.escudo, j.team_id) }}<span>{{ j.time }}</span></td>
+            <td class="num">{{ j.jogos }}</td>
+            <td class="num"><strong>{{ j[metrica] }}</strong></td>
+          </tr>
+          {% else %}
+          <tr><td colspan="5">Nenhum jogador nesta temporada.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+{% endblock %}

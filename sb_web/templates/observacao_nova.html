@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% from "_macros.html" import campo %}
+{% block titulo %}Nova observação{% endblock %}
+{% block conteudo %}
+  <div class="cabecalho-pagina">
+    <h1>Nova observação</h1>
+    <p class="apoio">
+      {% if jogador %}Sobre <strong>{{ jogador.player }}</strong>.{% endif %}
+      Todos os campos são obrigatórios.
+    </p>
+  </div>
+
+  <section class="cartao">
+    <form method="post" action="{{ url_for('scout.nova') }}" class="formulario" novalidate>
+      {{ form.hidden_tag() }}
+      {% for erro in form.player_id.errors %}
+        <p class="erro" role="alert">{{ erro }}</p>
+      {% endfor %}
+      <div class="formulario-linha">
+        {{ campo(form.temporada) }}
+        {{ campo(form.nota, type='number', min=1, max=10, inputmode='numeric') }}
+      </div>
+      {{ campo(form.autor, maxlength=60, autocomplete='name') }}
+      {{ campo(form.texto, rows=5, maxlength=1000) }}
+      <div class="formulario-acoes">
+        <button type="submit" class="botao">Gravar observação</button>
+        <a href="{{ url_for('scout.lista', jogador=form.player_id.data) if jogador else url_for('scout.lista') }}">Cancelar</a>
+      </div>
+    </form>
+  </section>
+{% endblock %}

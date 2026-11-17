@@ -1,0 +1,99 @@
+{
+  "registros": 202,
+  "times_mapeados": 30,
+  "times_com_dados": 30,
+  "times_com_tecnico_atual": 30,
+  "times_sem_dados": [],
+  "conflitos": [
+    {
+      "time": "America MG",
+      "wikidata": "Alberto Valentim",
+      "wikipedia": "Umberto Louzer"
+    },
+    {
+      "time": "Athletico Paranaense",
+      "wikidata": "Maurício Barbieri",
+      "wikipedia": "Odair Hellmann"
+    },
+    {
+      "time": "Atletico GO",
+      "wikidata": "Rafael Lacerda",
+      "wikipedia": "Roger Silva"
+    },
+    {
+      "time": "Atletico MG",
+      "wikidata": "Jorge Sampaoli",
+      "wikipedia": "Eduardo Domínguez"
+    },
+    {
+      "time": "Avai FC",
+      "wikidata": "Sérgio Soares",
+      "wikipedia": "Allan Aal"
+    },
+    {
+      "time": "Botafogo RJ",
+      "wikidata": "Rodrigo Bellão",
+      "wikipedia": "Tite"
+    },
+    {
+      "time": "Chapecoense AF",
+      "wikidata": "Caio Júnior",
+      "wikipedia": "Vinícius Bergantin"
+    },
+    {
+      "time": "Criciuma",
+      "wikidata": "Zé Ricardo",
+      "wikipedia": "Umberto Louzer"
+    },
+    {
+      "time": "Cuiaba",
+      "wikidata": "Bernardo Franco",
+      "wikipedia": "Eduardo Barros"
+    },
+    {
+      "time": "Goias",
+      "wikidata": "Guto Ferreira",
+      "wikipedia": "Mozart Santos"
+    },
+    {
+      "time": "Gremio",
+      "wikidata": "Luís Castro",
+      "wikipedia": "Renato Portaluppi"
+    },
+    {
+      "time": "Internacional",
+      "wikidata": "Pablo de Toledo",
+      "wikipedia": "Eduardo Baptista"
+    },
+    {
+      "time": "Ceara",
+      "wikidata": "Ricardinho",
+      "wikipedia": "Daniel Paulista"
+    },
+    {
+      "time": "Mirassol",
+      "wikidata": "Pintado",
+      "wikipedia": "Rafael Guanaes"
+    },
+    {
+      "time": "Red Bull Bragantino",
+      "wikidata": "Fernando Seabra",
+      "wikipedia": "Vagner Mancini"
+    },
+    {
+      "time": "Sport Recife",
+      "wikidata": "Jair Ventura",
+      "wikipedia": "Mariano Soso"
+    },
+    {
+      "time": "Vitoria",
+      "wikidata": "Fábio Carille",
+      "wikipedia": "Rafael Lacerda"
+    }
+  ],
+  "erros_wikipedia": [],
+  "atuais_pela_wikipedia": 20,
+  "coletado_em": "2026-11-13T19:12:01+00:00",
+  "ultima_tentativa": "2026-11-13T19:12:01+00:00",
+  "ultimo_erro": null
+}
