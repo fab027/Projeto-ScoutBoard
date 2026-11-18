@@ -329,3 +329,8 @@ divergência fica em `dados/treinadores_status.json`, para conferência.
 * **Credenciais:** nenhum arquivo de credencial vai para o git (`.env` e `*.db` estão no `.gitignore`).
 O projeto não usa mais credenciais do Google Drive. Se alguma já esteve num commit, revogue-a.
 * **Minutos** são estimativas (intervalo entre o primeiro e o último evento do jogador).
+
+## Autores
+Fabricio Nascimento
+Mateus Fonseca
+Yago Van Der Maas
