@@ -331,6 +331,6 @@ O projeto não usa mais credenciais do Google Drive. Se alguma já esteve num co
 * **Minutos** são estimativas (intervalo entre o primeiro e o último evento do jogador).
 
 ## Autores
-Fabricio Nascimento
-Mateus Fonseca
-Yago Van Der Maas
+* **Fabricio Nascimento**
+* **Mateus Fonseca**
+* **Yago Van Der Maas**
